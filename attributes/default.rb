@@ -27,10 +27,10 @@ default['php']['directives'] = {}
 # any cookbooks that override the php.ini would need to be sure
 # to use these
 # @NOTE: this hopefully will be pulled into the opscode book, Mark's patch
-default['php']['directives'] = { 'date.timezone' => 'GMT' }
+default['php']['directives'] = ['date.timezone' => 'GMT']
 
-case node["platform_family"]
-when "rhel", "fedora"
+case node["platform"]
+when "centos", "redhat", "fedora"
   default['php']['conf_dir']      = '/etc'
   default['php']['ext_conf_dir']  = '/etc/php.d'
   default['php']['fpm_user']      = 'nobody'
