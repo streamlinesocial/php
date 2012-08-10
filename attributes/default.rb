@@ -22,6 +22,12 @@ lib_dir = kernel['machine'] =~ /x86_64/ ? 'lib64' : 'lib'
 
 default['php']['install_method'] = 'package'
 
+# these are appended to the end of the php.ini file by default,
+# any cookbooks that override the php.ini would need to be sure
+# to use these
+# @NOTE: this hopefully will be pulled into the opscode book, Mark's patch
+default['php']['directives'] = ['date.timezone' => 'GMT']
+
 case node["platform"]
 when "centos", "redhat", "fedora"
   default['php']['conf_dir']      = '/etc'
