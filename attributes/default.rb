@@ -21,6 +21,7 @@
 lib_dir = kernel['machine'] =~ /x86_64/ ? 'lib64' : 'lib'
 
 default['php']['install_method'] = 'package'
+default['php']['directives'] = {}
 
 default['php']['install_packages'] = ["php53u", "php53u-devel", "php53u-cli", "php53u-pear"]
 
