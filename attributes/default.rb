@@ -21,6 +21,7 @@
 lib_dir = kernel['machine'] =~ /x86_64/ ? 'lib64' : 'lib'
 
 default['php']['install_method'] = 'package'
+default['php']['directives'] = {}
 
 # these are appended to the end of the php.ini file by default,
 # any cookbooks that override the php.ini would need to be sure
