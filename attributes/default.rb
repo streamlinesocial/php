@@ -30,8 +30,8 @@ default['php']['install_packages'] = ["php53u", "php53u-devel", "php53u-cli", "p
 # to use these
 default['php']['directives'] = {'date.timezone' => 'GMT'}
 
-case node["platform"]
-when "centos", "redhat", "fedora"
+case node["platform_family"]
+when "rhel", "fedora"
   default['php']['conf_dir']      = '/etc'
   default['php']['ext_conf_dir']  = '/etc/php.d'
   default['php']['fpm_user']      = 'nobody'
