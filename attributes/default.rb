@@ -29,14 +29,14 @@ default['php']['directives'] = {}
 # @NOTE: this hopefully will be pulled into the opscode book, Mark's patch
 default['php']['directives'] = { 'date.timezone' => 'GMT' }
 
-case node["platform"]
-when "centos", "redhat", "fedora"
+case node["platform_family"]
+when "rhel", "fedora"
   default['php']['conf_dir']      = '/etc'
   default['php']['ext_conf_dir']  = '/etc/php.d'
   default['php']['fpm_user']      = 'nobody'
   default['php']['fpm_group']     = 'nobody'
   default['php']['ext_dir']       = "/usr/#{lib_dir}/php/modules"
-when "debian", "ubuntu"
+when "debian"
   default['php']['conf_dir']      = '/etc/php5/cli'
   default['php']['ext_conf_dir']  = '/etc/php5/conf.d'
   default['php']['fpm_user']      = 'www-data'
