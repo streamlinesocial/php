@@ -1,4 +1,3 @@
-#
 # Author::  Joshua Timberman (<joshua@opscode.com>)
 # Author::  Seth Chisamore (<schisamo@opscode.com>)
 # Cookbook Name:: php
@@ -26,11 +25,6 @@ php_pear_channel 'pear.php.net' do
   action :update
 end
 
-case node['platform_family']
-when "rhel", "fedora"
-  # enabled by default in php53
-when "debian"
-  package "php5-fileinfo" do
-    action :upgrade
-  end
+php_pear_channel 'pecl.php.net' do
+  action :update
 end
