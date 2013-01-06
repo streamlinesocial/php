@@ -22,6 +22,8 @@ lib_dir = kernel['machine'] =~ /x86_64/ ? 'lib64' : 'lib'
 
 default['php']['install_method'] = 'package'
 
+default['php']['install_packages'] = ["php53u", "php53u-devel", "php53u-cli", "php53u-pear"]
+
 # these are appended to the end of the php.ini file by default,
 # any cookbooks that override the php.ini would need to be sure
 # to use these
